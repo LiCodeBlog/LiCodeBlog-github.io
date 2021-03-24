@@ -16,4 +16,13 @@ ssl证书购买到部署
 
 <!-- cloudbase framework deploy -e "your-env-id" -->
 环境下 执行 cloudbase  自动部署
+
+# 部署文件到指定目录
+tcb hosting deploy localPath cloudPath -e envId
+
+# 将 hosting 目录下的所有文件部署到根目录
+tcb hosting deploy hosting -e envId
+
+# 将 static 目录下的 index.js 文件部署到 static/index.js
+tcb hosting deploy ./static/index.js static/index.js -e envId
 <!-- more -->
