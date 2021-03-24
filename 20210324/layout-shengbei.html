@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣杯布局</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #hd {
+            height: 50px;
+            background: lemonchiffon;
+            text-align: center;
+        }
+
+        #bd {
+            height: 100%;
+            padding: 0 200px 0 180px;
+            background: pink;
+        }
+
+        #middle {
+            float: left;
+            /* 重点设置 宽度 100% 避免内容过少引起 布局塌陷 */
+            width: 100%;
+            height: 600px;
+            line-height: 600px;
+            background: blue;
+            text-align: center;
+        }
+
+        #left {
+            float: left;
+            width: 180px;
+            height: 600px;
+            line-height: 600px;
+
+            background: red;
+            margin-left: -100%;
+            position: relative;
+            left: -180px;
+            text-align: center;
+        }
+
+        #right {
+            float: left;
+            width: 200px;
+            height: 600px;
+            line-height: 600px;
+
+            margin-left: -200px;
+            background: green;
+            position: relative;
+            right: -200px;
+            text-align: center;
+        }
+
+        #footer {
+            width: 100%;
+            height: 50px;
+            clear: both;
+            background: lemonchiffon;
+            text-align: center;
+        }
+
+        body {
+            min-width: 580px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="hd">header</div>
+    <div id="bd">
+        <div id="middle">middle
+            /* 重点设置 宽度 100% 避免内容过少引起 布局塌陷 */
+        </div>
+        <div id="left">left</div>
+        <div id="right">right</div>
+    </div>
+    <div id="footer">footer</div>
+</body>
+
+
+<a href="https://www.jianshu.com/p/81ef7e7094e8">补充思想 参考</a>
+
+</html>
