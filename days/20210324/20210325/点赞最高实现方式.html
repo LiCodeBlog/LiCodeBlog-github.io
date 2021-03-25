@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[js] 用递归算法实现，数组长度为5且元素的随机数在2-32间不重复的值 （限制15行代码以内实现；限制时间10分钟内完成）</title>
+</head>
+
+<body>
+    <h1>[js] 用递归算法实现，数组长度为5且元素的随机数在2-32间不重复的值 （限制15行代码以内实现；限制时间10分钟内完成）</h1>
+
+    <div id="box">
+
+    </div>
+
+    <p id="rep">重新生成</p>
+
+    点赞最高的实现方式
+    <pre>
+        var arr = new Array(5);
+        var num = randomNumber();
+        var i = 0;
+        randomArr(arr, num);
+
+        console.log(arr);
+
+        function randomArr(arr, num) {
+        if (arr.indexOf(num) < 0) { 
+                arr[i]=num; i++; 
+            } else { 
+                num=randomNumber(); 
+            } if (i>= arr.length) {
+                console.log(arr);
+                return;
+            } else {
+                randomArr(arr, num)
+            }
+        }
+
+        function randomNumber() {
+            return Math.floor(Math.random() * 31 + 2)
+        }
+    </pre>
+</body>
+
+<script>
+    var arr = new Array(5);
+    var num = randomNumber();
+    var i = 0;
+    randomArr(arr, num);
+
+    console.log(arr);
+
+    function randomArr(arr, num) {
+        if (arr.indexOf(num) < 0) {
+            arr[i] = num;
+            i++;
+        } else {
+            num = randomNumber();
+        }
+        if (i >= arr.length) {
+            console.log(arr);
+            return;
+        } else {
+            randomArr(arr, num)
+        }
+    }
+
+    function randomNumber() {
+        return Math.floor(Math.random() * 31 + 2)
+    }
+</script>
+
+</html>

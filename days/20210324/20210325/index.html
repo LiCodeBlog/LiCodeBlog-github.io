@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[js] 用递归算法实现，数组长度为5且元素的随机数在2-32间不重复的值 （限制15行代码以内实现；限制时间10分钟内完成）</title>
+</head>
+
+<body>
+    <h1>[js] 用递归算法实现，数组长度为5且元素的随机数在2-32间不重复的值 （限制15行代码以内实现；限制时间10分钟内完成）</h1>
+
+
+    <div id="box">
+
+    </div>
+
+    <p id="rep">重新生成</p>
+    自己实现的方法
+    <pre>
+        var arr = [];
+        function createArr() {
+            var rand = parseInt(Math.random() * (32 - 2 + 1) + 2, 10);
+            if (arr.length < 5) {
+                if (arr.indexOf(rand) == -1) {
+                    arr.push(rand);
+                    arr.sort(function (a, b) {
+                        return a - b;
+                    });
+                    createArr(); //递归 自己掉用自己
+                } else {
+                    createArr();
+                }
+            } else {
+                document.getElementById('box').innerHTML = arr;
+                return arr;
+            }
+        }
+        createArr();
+    </pre>
+</body>
+
+<script>
+    var arr = [];
+
+    function createArr() {
+        var rand = parseInt(Math.random() * (32 - 2 + 1) + 2, 10);
+        if (arr.length < 5) {
+            if (arr.indexOf(rand) == -1) {
+                arr.push(rand);
+                arr.sort(function (a, b) {
+                    return a - b;
+                });
+                // console.log(arr);
+                createArr(); //递归 自己掉用自己
+            } else {
+                createArr();
+            }
+        } else {
+            // console.log('生成结束');
+            document.getElementById('box').innerHTML = arr;
+            return arr;
+        }
+    }
+
+
+    createArr();
+
+
+    var rep = document.getElementById('rep');
+    rep.onclick = function () {
+        arr = []
+        createArr();
+    }
+</script>
+
+</html>
