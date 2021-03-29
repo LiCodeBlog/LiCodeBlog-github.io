@@ -19,17 +19,17 @@
             alert('请确认要删除的对象为字符串!');
             return false;
         }
-        else{
-
+        else {
             let index = str.lastIndexOf(del);
+            console.log(index);
 
-            return str.substring(0,index);
+            return str.substring(0, index) + str.substring(index + 1, str.length);
 
-            console.log(str.substring(0,index));
         }
     }
 
-    delLastTxt('asdasdasd#13123abc','c');
+    const txt = delLastTxt('asdasdasd13123abc', 'c');
+    console.log(txt);
 </script>
 
 </html>
